@@ -1,17 +1,18 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
+    def tools = rootProject.ext.tools
+
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.lucasmarciano.pomodoro"
-        minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        applicationId tools.applicationId
+        minSdkVersion tools.minSdkVersion
+        targetSdkVersion tools.targetSdkVersion
+        versionCode tools.versionCode
+        versionName tools.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -23,14 +24,41 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
-    implementation 'com.google.android.material:material:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    def v = rootProject.ext.versions
+
+    // region Kotlin
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$v.coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$v.coroutines"
+    implementation "org.koin:koin-android:$v.koin"
+    implementation "androidx.core:core-ktx:$v.core_ktx"
+
+    // region UI
+    implementation "androidx.appcompat:appcompat:$v.appcompat"
+    implementation "com.google.android.material:material:$v.android_material"
+    implementation "androidx.constraintlayout:constraintlayout:$v.constraintlayout"
+    implementation "androidx.lifecycle:lifecycle-extensions:$v.lifecycle"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$v.lifecycle"
+    kapt "androidx.lifecycle:lifecycle-compiler:$v.lifecycle"
+
+    // region local data
+    implementation "androidx.room:room-runtime:$v.room_version"
+    implementation "androidx.room:room-ktx:$v.room_version"
+    kapt "androidx.room:room-compiler:$v.room_version"
+
+    // region injection dependency
+    implementation "org.koin:koin-android:$v.koin_version"
+    implementation "org.koin:koin-android-viewmodel:$v.koin_version"
+
+    // region anko
+    implementation "org.jetbrains.anko:anko:$v.anko_version"
+    implementation "org.jetbrains.anko:anko-commons:$v.anko_version"
+    implementation "org.jetbrains.anko:anko-sdk25-coroutines:$v.anko_version"
+    implementation "org.jetbrains.anko:anko-appcompat-v7-coroutines:$v.anko_version"
+
+    // region Testing
+    testImplementation "junit:junit:$v.junit"
+    androidTestImplementation "androidx.test:runner:$v.test_runner"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$v.espresso_core"
 }
