@@ -5,4 +5,5 @@
     <color name="colorAccent">#ffffff</color>
     <color name="colorInactiveTimer">#CCCCCC</color>
     <color name="colorTimerList">#000000</color>
+    <color name="colorTimerListSecondary">#777777</color>
 </resources>

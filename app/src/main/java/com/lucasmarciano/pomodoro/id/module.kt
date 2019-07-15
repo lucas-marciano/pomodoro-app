@@ -2,8 +2,8 @@ package com.lucasmarciano.pomodoro.id
 
 import androidx.room.Room
 import com.lucasmarciano.pomodoro.data.AppDatabase
-import com.lucasmarciano.pomodoro.ui.hisoty_pomodoro.HistoryPomodoroAdapter
-import com.lucasmarciano.pomodoro.ui.hisoty_pomodoro.HistoryPomodoroViewModel
+import com.lucasmarciano.pomodoro.ui.history_pomodoro.HistoryPomodoroAdapter
+import com.lucasmarciano.pomodoro.ui.history_pomodoro.HistoryPomodoroViewModel
 import com.lucasmarciano.pomodoro.ui.new_pomodoro.NewPomodoroViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -14,7 +14,7 @@ val uiModules = module {
     viewModel { HistoryPomodoroViewModel() }
 
     // Adapters
-    factory { HistoryPomodoroAdapter(context = get()) }
+    factory { HistoryPomodoroAdapter() }
 
 }
 

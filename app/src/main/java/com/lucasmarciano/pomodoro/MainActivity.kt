@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
-import com.lucasmarciano.pomodoro.ui.SectionsPagerAdapter
+import com.lucasmarciano.pomodoro.utils.SectionsPagerAdapter
 
 class MainActivity : AppCompatActivity() {
 
