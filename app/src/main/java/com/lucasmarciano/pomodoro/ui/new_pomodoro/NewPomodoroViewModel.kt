@@ -16,8 +16,9 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class NewPomodoroViewModel : ViewModel() {
+
     private var TAG = Logger.getTag()
-    private var totalTimer: Long = 1 * 60000 // One minute has 60 seconds and one townsend milliseconds.
+    private var totalTimer: Long = 25 * 60000 // One minute has 60 seconds and one townsend milliseconds.
     private var interval: Long = 1 * 1000
     private var remainMilliseconds: Long = 0
     private lateinit var pomodoroDao: PomodoroDao
@@ -82,4 +83,5 @@ class NewPomodoroViewModel : ViewModel() {
             pomodoroDao.insert(pomodoro)
         }
     }
+
 }

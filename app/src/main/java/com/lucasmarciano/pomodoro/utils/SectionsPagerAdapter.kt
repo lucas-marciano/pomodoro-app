@@ -1,11 +1,11 @@
-package com.lucasmarciano.pomodoro.ui
+package com.lucasmarciano.pomodoro.utils
 
 import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.lucasmarciano.pomodoro.R
-import com.lucasmarciano.pomodoro.ui.hisoty_pomodoro.HistoryPomodoroFragment
+import com.lucasmarciano.pomodoro.ui.history_pomodoro.HistoryPomodoroFragment
 import com.lucasmarciano.pomodoro.ui.new_pomodoro.NewPomodoroFragment
 
 private val TAB_TITLES = arrayOf(
